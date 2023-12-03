@@ -1,0 +1,9 @@
+# IDE related
+.idea
+*.iml
+
+# Executable related
+out/
+*.class
+*.jar
+*.MF
