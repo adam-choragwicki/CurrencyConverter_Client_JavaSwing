@@ -110,9 +110,9 @@ public class Controller
         }
     }
 
-    private void getConfigResponseCallback(String exchangeRatesTimestamp, ArrayList<Currency> currencies)
+    private void getConfigResponseCallback(ArrayList<Currency> currencies)
     {
-        model_.setExchangeRatesTimestamp(exchangeRatesTimestamp);
+//        model_.setExchangeRatesTimestamp(exchangeRatesTimestamp);
         model_.setCurrencies(currencies);
         view_.initializeComboBoxes();
         view_.updateLabels();

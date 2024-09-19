@@ -11,10 +11,11 @@ import types.Currency;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public class MessageProcessor
 {
-    public void setGetConfigResponseCallback(BiConsumer<String, ArrayList<Currency>> callback)
+    public void setGetConfigResponseCallback(Consumer<ArrayList<Currency>> callback)
     {
         getConfigResponseCallback_ = callback;
     }
@@ -64,7 +65,7 @@ public class MessageProcessor
 
     private void processGetConfigResponse(GetConfigResponse getConfigResponse)
     {
-        String exchangeRatesTimestamp = getConfigResponse.getExchangeRatesTimestamp();
+//        String exchangeRatesTimestamp = getConfigResponse.getExchangeRatesTimestamp();
         String currenciesNamesAndCodes = getConfigResponse.getCurrenciesNamesAndCodes();
 
         JsonReader jsonReader = new JsonReader(currenciesNamesAndCodes);
@@ -85,7 +86,7 @@ public class MessageProcessor
             currencies.add(new Currency(currencyName, jsonReader.getValue(currencyName)));
         }
 
-        getConfigResponseCallback_.accept(exchangeRatesTimestamp, currencies);
+        getConfigResponseCallback_.accept(currencies);
     }
 
     private void processCalculateExchangeResponse(CalculateExchangeResponse calculateExchangeResponse)
@@ -105,7 +106,7 @@ public class MessageProcessor
         }
     }
 
-    private java.util.function.BiConsumer<String, ArrayList<Currency>> getConfigResponseCallback_;
+    private java.util.function.Consumer<ArrayList<Currency>> getConfigResponseCallback_;
     private java.util.function.BiConsumer<String, String> calculateExchangeResponseCallback_;
     private java.util.function.BiConsumer<Boolean, String> updateCacheResponseCallback_;
 }

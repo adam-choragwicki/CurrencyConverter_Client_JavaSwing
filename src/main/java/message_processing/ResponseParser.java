@@ -50,10 +50,11 @@ public class ResponseParser
     {
         JsonReader jsonReader = new JsonReader(messageBody);
 
-        final String exchangeRatesTimestamp = jsonReader.getValue(MessageContract.GetConfigResponseContract.EXCHANGE_RATES_TIMESTAMP);
+//        final String exchangeRatesTimestamp = jsonReader.getValue(MessageContract.GetConfigResponseContract.EXCHANGE_RATES_TIMESTAMP);
         final String currenciesNamesAndCodesString = jsonReader.getValue(MessageContract.GetConfigResponseContract.CURRENCIES_NAMES_AND_CODES);
 
-        return new GetConfigResponse(messageBody, correlationId, exchangeRatesTimestamp, currenciesNamesAndCodesString);
+//        return new GetConfigResponse(messageBody, correlationId, exchangeRatesTimestamp, currenciesNamesAndCodesString);
+        return new GetConfigResponse(messageBody, correlationId, currenciesNamesAndCodesString);
     }
 
     public static CalculateExchangeResponse parseCalculateExchangeResponse(String messageBody, String correlationId)

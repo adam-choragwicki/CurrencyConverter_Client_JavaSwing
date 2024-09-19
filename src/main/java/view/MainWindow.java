@@ -267,10 +267,12 @@ public class MainWindow extends JFrame
         }
 
         /*Set to EUR*/
-        sourceCurrencyComboBox.setSelectedIndex(42);
+//        sourceCurrencyComboBox.setSelectedIndex(42);
+        sourceCurrencyComboBox.setSelectedIndex(0);
 
         /*Set to USD*/
-        targetCurrencyComboBox.setSelectedIndex(136);
+//        targetCurrencyComboBox.setSelectedIndex(136);
+        targetCurrencyComboBox.setSelectedIndex(1);
 
         pack();
         setResizable(false);
