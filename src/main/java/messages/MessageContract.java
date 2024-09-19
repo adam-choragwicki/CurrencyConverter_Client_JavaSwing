@@ -47,7 +47,6 @@ public class MessageContract
 
     public static class GetConfigResponseContract
     {
-        public static final String EXCHANGE_RATES_TIMESTAMP = "exchange_rates_timestamp";
         public static final String CURRENCIES_NAMES_AND_CODES = "currencies_names_and_codes";
     }
 
@@ -62,6 +61,7 @@ public class MessageContract
     {
         public static final String STATUS = "status";
         public static final String CALCULATION_RESULT = "calculation_result";
+        public static final String EXCHANGE_RATE_TIMESTAMP = "exchange_rate_timestamp";
         public static final String FAILURE_REASON = "failure_reason";
         public static final String OK_STATUS = "OK";
     }
@@ -69,7 +69,6 @@ public class MessageContract
     public static class UpdateCacheResponseContract
     {
         public static final String STATUS = "status";
-        public static final String NEW_EXCHANGE_RATES_TIMESTAMP = "new_exchange_rates_timestamp";
         public static final String OK_STATUS = "OK";
     }
 }

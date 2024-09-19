@@ -69,7 +69,10 @@ public class ResponseParser
         if (calculateExchangeResponse.isValid())
         {
             String calculationResult = jsonReader.getValue(MessageContract.CalculateExchangeResponseContract.CALCULATION_RESULT);
+            String exchangeRateTimestamp = jsonReader.getValue(MessageContract.CalculateExchangeResponseContract.EXCHANGE_RATE_TIMESTAMP);
+
             calculateExchangeResponse.setCalculationResult(calculationResult);
+            calculateExchangeResponse.setExchangeRateTimestamp(exchangeRateTimestamp);
         }
         else
         {

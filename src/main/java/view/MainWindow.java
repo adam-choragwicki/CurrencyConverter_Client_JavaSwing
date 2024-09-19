@@ -24,6 +24,8 @@ public class MainWindow extends JFrame
         mainFont = new Font(null, Font.BOLD, 20);
 
         addComponents();
+
+        updateExchangeRateTimestampLabel("-");
     }
 
     private void addComponents()
@@ -63,10 +65,9 @@ public class MainWindow extends JFrame
 
     private void addTimestampLabel(JPanel timestampPanel)
     {
-        timestampLabel = new JLabel();
-        timestampLabel.setFont(mainFont);
-        setExchangeRateTimestampLabel("NULL");
-        timestampPanel.add(timestampLabel);
+        exchangeRateTimestampLabel = new JLabel();
+        exchangeRateTimestampLabel.setFont(mainFont);
+        timestampPanel.add(exchangeRateTimestampLabel);
     }
 
     private void addExchangeLabel(JPanel requestPanel)
@@ -200,6 +201,11 @@ public class MainWindow extends JFrame
         panel.add(closeButton);
     }
 
+    public void updateExchangeRateTimestampLabel(String exchangeRateTimestamp)
+    {
+        setExchangeRateTimestampLabel(exchangeRateTimestamp);
+    }
+
     public void updateTargetCurrencyTextField(String result)
     {
         targetCurrencyAmountLabel.setText(result);
@@ -282,7 +288,6 @@ public class MainWindow extends JFrame
 
     public void updateLabels()
     {
-        setExchangeRateTimestampLabel(model_.getExchangeRatesTimestamp());
         targetCurrencyAmountLabel.setText("");
         targetCurrencyNameLabel.setText("");
     }
@@ -319,7 +324,7 @@ public class MainWindow extends JFrame
 
     private void setExchangeRateTimestampLabel(String exchangeRateTimestamp)
     {
-        timestampLabel.setText("Exchange rates timestamp: " + exchangeRateTimestamp);
+        exchangeRateTimestampLabel.setText("Exchange rate timestamp: " + exchangeRateTimestamp);
     }
 
     public void lockButtons()
@@ -338,7 +343,7 @@ public class MainWindow extends JFrame
 
     private final Font mainFont;
 
-    private JLabel timestampLabel;
+    private JLabel exchangeRateTimestampLabel;
     private JTextField sourceCurrencyTextField;
     private JComboBox<Currency> sourceCurrencyComboBox;
     private JComboBox<Currency> targetCurrencyComboBox;

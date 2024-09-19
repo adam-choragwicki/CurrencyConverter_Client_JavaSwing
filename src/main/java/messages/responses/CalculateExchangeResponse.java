@@ -25,9 +25,19 @@ public class CalculateExchangeResponse extends AbstractResponse
         calculationResult_ = calculationResult;
     }
 
+    public void setExchangeRateTimestamp(String exchangeRateTimestamp)
+    {
+        exchangeRateTimestamp_ = exchangeRateTimestamp;
+    }
+
     public String getCalculationResult()
     {
         return calculationResult_;
+    }
+
+    public String getExchangeRateTimestamp()
+    {
+        return exchangeRateTimestamp_;
     }
 
     public void setFailureReason(String failureReason)
@@ -41,6 +51,7 @@ public class CalculateExchangeResponse extends AbstractResponse
     }
 
     private String calculationResult_;
+    private String exchangeRateTimestamp_;
     private boolean valid_;
     private String failureReason_;
 }

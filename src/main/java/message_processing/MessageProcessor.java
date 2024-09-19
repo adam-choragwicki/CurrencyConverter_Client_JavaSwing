@@ -20,7 +20,7 @@ public class MessageProcessor
         getConfigResponseCallback_ = callback;
     }
 
-    public void setCalculateExchangeResponseCallback(BiConsumer<String, String> callback)
+    public void setCalculateExchangeResponseCallback(TriConsumer<String, String, String> callback)
     {
         calculateExchangeResponseCallback_ = callback;
     }
@@ -91,7 +91,7 @@ public class MessageProcessor
 
     private void processCalculateExchangeResponse(CalculateExchangeResponse calculateExchangeResponse)
     {
-        calculateExchangeResponseCallback_.accept(calculateExchangeResponse.getCalculationResult(), calculateExchangeResponse.getFailureReason());
+        calculateExchangeResponseCallback_.accept(calculateExchangeResponse.getCalculationResult(), calculateExchangeResponse.getExchangeRateTimestamp(), calculateExchangeResponse.getFailureReason());
     }
 
     private void processUpdateCacheResponse(UpdateCacheResponse updateCacheResponse)
@@ -107,6 +107,6 @@ public class MessageProcessor
     }
 
     private java.util.function.Consumer<ArrayList<Currency>> getConfigResponseCallback_;
-    private java.util.function.BiConsumer<String, String> calculateExchangeResponseCallback_;
+    private TriConsumer<String, String, String> calculateExchangeResponseCallback_;
     private java.util.function.BiConsumer<Boolean, String> updateCacheResponseCallback_;
 }

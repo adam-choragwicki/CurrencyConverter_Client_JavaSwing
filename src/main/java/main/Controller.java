@@ -112,17 +112,17 @@ public class Controller
 
     private void getConfigResponseCallback(ArrayList<Currency> currencies)
     {
-//        model_.setExchangeRatesTimestamp(exchangeRatesTimestamp);
         model_.setCurrencies(currencies);
         view_.initializeComboBoxes();
         view_.updateLabels();
     }
 
-    private void calculateExchangeResponseCallback(String calculationResult, String failureReason)
+    private void calculateExchangeResponseCallback(String calculationResult, String exchangeRateTimestamp, String failureReason)
     {
         if (calculationResult != null)
         {
             view_.updateTargetCurrencyTextField(calculationResult);
+            view_.updateExchangeRateTimestampLabel(exchangeRateTimestamp);
         }
         else
         {
