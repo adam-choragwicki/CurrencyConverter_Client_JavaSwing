@@ -92,12 +92,6 @@ public class ResponseParser
         UpdateCacheResponse updateCacheResponse = new UpdateCacheResponse(messageBody, correlationId);
         updateCacheResponse.setValid(status.equals(MessageContract.UpdateCacheResponseContract.OK_STATUS));
 
-        if (updateCacheResponse.isValid())
-        {
-            String newExchangeRatesTimestamp = jsonReader.getValue(MessageContract.UpdateCacheResponseContract.NEW_EXCHANGE_RATES_TIMESTAMP);
-            updateCacheResponse.setNewExchangeRatesTimestamp(newExchangeRatesTimestamp);
-        }
-
         return updateCacheResponse;
     }
 }
